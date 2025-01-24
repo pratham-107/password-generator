@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Password Generator</title>
+    </head>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: #d6cbd3;
+        }
+        .box{
+            height: 300px;
+            padding: 40px 60px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: #eca1a6;
+            text-align: center;
+        }
+        p{
+            font-family: monospace;
+            font-size: larger;
+            font-weight: bold;
+            /* margin-left: 30px; */
+        }
+        input{
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        button{
+            /* margin-left: 60px; */
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+        button:hover{
+            transform: scaleX(1.1);
+            background-color: blue;
+            color: white;
+        }
+    </style>
+    <body>
+        <div class="container">
+        <div class="box">
+            <p>Password Generator</p>
+            <input type="text" placeholder="Enter first name" id="fname"><br><br>
+
+            <input type="text" placeholder="Enter last name" id="lname"><br><br>
+
+            <input type="number" placeholder="Enter phone number" id="number"><br><br>
+
+            <input type="text" id="password" readonly><br><br>
+
+            <button onclick="generate()">Generate</button>
+        </div>
+        </div>
+        
+        <script>
+            function generate() {
+                const fname = document.getElementById('fname').value;
+                const lname = document.getElementById('lname').value;
+                const special = "!@#$%^";
+                const number = document.getElementById('number').value;
+                let pass = ""; 
+
+                pass += fname[Math.floor(Math.random() * fname.length)];
+                pass += fname[Math.floor(Math.random() * fname.length)];
+                pass += fname[Math.floor(Math.random() * fname.length)];
+                pass += fname[Math.floor(Math.random() * fname.length)];
+
+                pass += lname[Math.floor(Math.random() * lname.length)];
+                pass += lname[Math.floor(Math.random() * lname.length)];
+
+                pass += special[Math.floor(Math.random() * special.length)];
+
+                pass += number[Math.floor(Math.random() * number.length)];
+                pass += number[Math.floor(Math.random() * number.length)];
+                pass += number[Math.floor(Math.random() * number.length)];
+                pass += number[Math.floor(Math.random() * number.length)];
+                pass += number[Math.floor(Math.random() * number.length)];
+
+                document.getElementById('password').value = pass;
+            }
+        </script>
+    </body>
+</html>
